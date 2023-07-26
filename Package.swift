@@ -6,13 +6,14 @@ import PackageDescription
 let package = Package(
     name: "swift-html-styling",
     platforms: [
-       .macOS(.v10_15)
+        .macOS(.v10_15)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "swift-html-styling",
-            targets: ["swift-html-styling"]),
+            targets: ["swift-html-styling"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -27,9 +28,11 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftCss", package: "BinaryBirds-swift-css"),
                 .product(name: "SwiftHtml", package: "BinaryBirds-swift-html"),
-            ]),
+            ]
+        ),
         .testTarget(
             name: "swift-html-stylingTests",
-            dependencies: ["swift-html-styling"]),
+            dependencies: ["swift-html-styling"]
+        ),
     ]
 )

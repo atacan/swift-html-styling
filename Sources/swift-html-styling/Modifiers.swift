@@ -1,7 +1,3 @@
-//
-// https://github.com/atacan
-// 26.07.23
-
 import SwiftCss
 import SwiftHtml
 

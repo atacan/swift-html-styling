@@ -1,10 +1,12 @@
-import XCTest
-@testable import swift_html_styling
-import SwiftHtml
 import SwiftCss
+import SwiftHtml
+import XCTest
+
+@testable import swift_html_styling
 
 final class swift_html_stylingTests: XCTestCase {
     // MARK: - Properties
+
     func testStyleProperty() {
         let doc = Document {
             Span("").style(Padding(.initial))
@@ -12,7 +14,7 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="padding:initial"></span>"#, html)
     }
-    
+
     func testStyleProperties() {
         let doc = Document {
             Span("").style([Padding(.initial), Margin(.inherit)])
@@ -20,18 +22,19 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="padding:initial;margin:inherit"></span>"#, html)
     }
-    
+
     func testStylePropertyBuilder() {
         let doc = Document {
-            Span("").style {
-                Padding(.initial)
-                Margin(.inherit)
-            }
+            Span("")
+                .style {
+                    Padding(.initial)
+                    Margin(.inherit)
+                }
         }
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="padding:initial;margin:inherit"></span>"#, html)
     }
-    
+
     func testStyleManipulation() {
         let doc = Document {
             Span("")
@@ -62,7 +65,7 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="margin:inherit"></span>"#, html)
     }
-    
+
     func testRemoveStyleProperty() {
         let doc = Document {
             Span("")
@@ -82,7 +85,7 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span></span>"#, html)
     }
-    
+
     func testAddStylePropertyBuilder() {
         let doc = Document {
             Span("")
@@ -95,15 +98,15 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="a;b;c;font-family:monospace;font-size:large"></span>"#, html)
     }
-    
+
     func testRemoveStylePropertyBuilder() {
         let doc = Document {
             Span("")
                 .style("a", "b", "c")
-                .style(addIf: true, {
+                .style(addIf: true) {
                     FontFamily(.family("monospace"))
                     FontSize(.large)
-                })
+                }
                 .style(removeIf: true) {
                     FontFamily(.family("monospace"))
                     FontSize(.large)
@@ -112,9 +115,9 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="a;b;c"></span>"#, html)
     }
-    
+
     // MARK: - Modifiers
-    
+
     func testTagStyleModifier() {
         let doc = Document {
             Span("").padding(.initial)
@@ -122,6 +125,4 @@ final class swift_html_stylingTests: XCTestCase {
         let html = DocumentRenderer(minify: true).render(doc)
         XCTAssertEqual(#"<span style="padding:initial"></span>"#, html)
     }
-    
-
 }
