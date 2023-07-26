@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "binarybirds-swift-css",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/atacan/BinaryBirds-swift-css",
+      "state" : {
+        "branch" : "for-html-styling",
+        "revision" : "92568eda3f3d188032ad0d936f42a3b365510c6c"
+      }
+    },
+    {
+      "identity" : "binarybirds-swift-html",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/atacan/BinaryBirds-swift-html",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ff01b2233db319b42db713825b731f8cca2c82fd"
+      }
+    }
+  ],
+  "version" : 2
+}
