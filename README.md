@@ -30,4 +30,4 @@ which would render as
 <span style="padding:initial;margin:inherit"></span>
 ```
 
-Note: Only `.padding` is implemented as proof of consept. More to come. 
+Note: Only `.padding` is implemented as proof of concept. More to come. 
