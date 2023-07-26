@@ -4,24 +4,24 @@ import SwiftHtml
 extension Tag {
     public func padding(_ value: String) -> Self {
         let property = Property(name: "padding", value: value)
-        return style(property)
+        return style(add: property)
     }
 
     /// Sets all the Padding properties in one declaration
     public func padding(_ value: PaddingValue = .length(.zero)) -> Self {
-        style(Padding(value))
+        style(add: Padding(value))
     }
 
     public func padding(_ value: Unit = .zero) -> Self {
-        style(Padding(value))
+        style(add: Padding(value))
     }
 
     public func padding(horizontal: PaddingValue = .length(.zero), vertical: PaddingValue = .length(.zero)) -> Self {
-        style(Padding(horizontal: horizontal, vertical: vertical))
+        style(add: Padding(horizontal: horizontal, vertical: vertical))
     }
 
     public func padding(horizontal: Unit = .zero, vertical: Unit = .zero) -> Self {
-        style(Padding(horizontal: horizontal, vertical: vertical))
+        style(add: Padding(horizontal: horizontal, vertical: vertical))
     }
 
     public func padding(
@@ -30,10 +30,10 @@ extension Tag {
         bottom: PaddingValue = .length(.zero),
         left: PaddingValue = .length(.zero)
     ) -> Self {
-        style(Padding(top: top, right: right, bottom: bottom, left: left))
+        style(add: Padding(top: top, right: right, bottom: bottom, left: left))
     }
 
     public func padding(top: Unit = .zero, right: Unit = .zero, bottom: Unit = .zero, left: Unit = .zero) -> Self {
-        style(Padding(top: top, right: right, bottom: bottom, left: left))
+        style(add: Padding(top: top, right: right, bottom: bottom, left: left))
     }
 }
