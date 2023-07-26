@@ -2,7 +2,7 @@ import SwiftCss
 import SwiftHtml
 import XCTest
 
-@testable import swift_html_styling
+@testable import SwiftHtmlStyling
 
 final class swift_html_stylingTests: XCTestCase {
     // MARK: - Properties
