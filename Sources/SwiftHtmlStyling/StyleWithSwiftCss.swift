@@ -23,7 +23,7 @@ extension Tag {
     }
 
     /// Specifies multiple stylenames for an element (refers to a style in a style sheet)
-    func style(_ properties: Property...) -> Self {
+    public func style(_ properties: Property...) -> Self {
         style(properties)
     }
 
@@ -31,7 +31,7 @@ extension Tag {
     ///
     /// Note: If the value is empty or nil it won't be added to the list
     ///
-    func style(add property: Property, _ condition: Bool = true) -> Self {
+    public func style(add property: Property, _ condition: Bool = true) -> Self {
         style(add: [property], condition)
     }
 
@@ -44,7 +44,7 @@ extension Tag {
     ///
     /// Note: If the value is empty it won't be added to the list
     ///
-    func style(add properties: [Property], _ condition: Bool = true) -> Self {
+    public func style(add properties: [Property], _ condition: Bool = true) -> Self {
         guard !properties.isEmpty else {
             return self
         }
@@ -54,18 +54,18 @@ extension Tag {
         return style(newValues.styleString, condition)
     }
 
-    func style(addIf condition: Bool, @PropertyBuilder _ properties: () -> [Property]) -> Self {
+    public func style(addIf condition: Bool, @PropertyBuilder _ properties: () -> [Property]) -> Self {
         style(add: properties(), condition)
     }
 
     /// Removes a given style values if the condition is true
-    func style(remove property: Property, _ condition: Bool = true) -> Self {
+    public func style(remove property: Property, _ condition: Bool = true) -> Self {
         let value = renderProperty(property)
         return style(remove: [value], condition)
     }
 
     /// Removes an array of style values if the condition is true
-    func style(remove properties: [Property], _ condition: Bool = true) -> Self {
+    public func style(remove properties: [Property], _ condition: Bool = true) -> Self {
         let values = properties.map(renderProperty)
         let newClasses = styleArray.filter { !values.contains($0) }
         if newClasses.isEmpty {
@@ -74,7 +74,7 @@ extension Tag {
         return style(newClasses, condition)
     }
 
-    func style(removeIf condition: Bool, @PropertyBuilder _ properties: () -> [Property]) -> Self {
+    public func style(removeIf condition: Bool, @PropertyBuilder _ properties: () -> [Property]) -> Self {
         style(remove: properties(), condition)
     }
 }
