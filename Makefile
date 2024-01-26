@@ -2,7 +2,7 @@
 install-formatters:
 	brew install swiftformat
 	brew install swift-format
-	# npm install --save-dev git-format-staged
+	npm install -g --save-dev git-format-staged
 
 # Create and fill the pre-commit hook
 precommit:
