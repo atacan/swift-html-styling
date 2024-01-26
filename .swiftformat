@@ -61,7 +61,7 @@
 --structthreshold 0
 --tabwidth unspecified
 --throwcapturing 
---trailingclosures 
+--disable trailingclosures 
 --trimwhitespace always
 --typeattributes prev-line
 --typeblanklines remove
